@@ -93,7 +93,7 @@ bool updateRegistry(Json::Value &jsonRoot, Json::Value &outputRoot)
 			
 		    wstring updatedPath = toWideChar(path);
 			wstring updatedValueName = toWideChar(valueName);
-			long value = -1;
+			Json::Value::Int value = -1;
 			try
 			{
 				value = getDwordValue(hKeyFromString(solutionsRoot["options"]["hKey"].asCString()), updatedPath.c_str(), updatedValueName.c_str());
@@ -115,7 +115,7 @@ bool updateRegistry(Json::Value &jsonRoot, Json::Value &outputRoot)
 			}
 			try
 			{
-				currentOption["newValue"] = getDwordValue(hKeyFromString(solutionsRoot["options"]["hKey"].asCString()), updatedPath.c_str(), updatedValueName.c_str());
+				currentOption["newValue"] = Json::Value::Int(getDwordValue(hKeyFromString(solutionsRoot["options"]["hKey"].asCString()), updatedPath.c_str(), updatedValueName.c_str()));
 			} catch (int exceptionCode) {
 				// TODO Handle gracefully.
 			}
