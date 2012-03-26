@@ -138,6 +138,7 @@ int main (int argc, char *argv[])
 	if (argc < 2)
 	{
 		cout << "Missing argument. Usage: RegistrySettingsHandler <JsonModel>.";
+		return 1;
 	}
 	Json::Value root, optionsRoot, output;
 	parseJson(argv[1], root);
